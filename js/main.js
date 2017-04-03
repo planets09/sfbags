@@ -52,7 +52,7 @@ for(i=0; i<toteArray.length; i++){
 // the value of the class attribute of the specified element.
 //Now each div will have set column width:
 	newDiv.className = "col-md-4";
-	//each div is given a class 
+//each div is given a class 
 	newtoteDiv.className = "tote-gallery";
 	image.className = "img-responsive";
 	button.className = "btn btn-success btn-md";
@@ -79,19 +79,20 @@ for(i=0; i<toteArray.length; i++){
 	document.getElementById("totes").appendChild(newDiv);
 }
 
+//This object constructor is for badge icons in footer section only. Note that 
+// the actual ID was created/added thru function:
 
-//this object constructor is for footer section only:
-
-function badgeImage(image, text){
+function badgeImage(image, text, id){
 	this.image = image
 	this.text = text
+	this.id = id
 }
 
 var badgeArray =[];
 //calling the function
-var imgHeart = new badgeImage("images/badge-heart.png", "Passion, Craft, Quality");
-var imgSF = new badgeImage("images/badge-sfmade.png", "SFMADE");
-var imgFab = new badgeImage("images/badge-fabrico.png", "FABRICO ERGO SUM");
+var imgHeart = new badgeImage("images/badge-heart.png", "Passion, Craft, Quality", "heart");
+var imgSF = new badgeImage("images/badge-sfmade.png", "SFMADE", "sf");
+var imgFab = new badgeImage("images/badge-fabrico.png", "FABRICO ERGO SUM", "fabric");
 
 //use .push method to push the objects into empty badgeArray.
 badgeArray.push(imgHeart, imgSF, imgFab);
@@ -105,6 +106,9 @@ for(i=0; i<badgeArray.length; i++){
 	var bText = document.createTextNode(badgeArray[i].text);
 
 	image.src = badgeArray[i].image;
+	image.id = badgeArray[i].id;
+
+
 //Assign .className to elements; .className gets and sets
 // the value of the class attribute of the specified element.
 //Now each div will have set column width:
@@ -113,15 +117,61 @@ for(i=0; i<badgeArray.length; i++){
 	image.className = "image-responsive";
 
 	badgeText.appendChild(bText);
-
 	newbadgeDiv.appendChild(badgeText);
 	newbadgeDiv.appendChild(image);
-
 	newBDiv.appendChild(newbadgeDiv);
 
 //Target the empty HTML div id (in footer area) and append item:
 	document.getElementById('badges').appendChild(newBDiv);
 }
+
+//Creating modal for badge icon section:
+
+// Create text variable and then get the actual modal itself.
+var modalOne = document.getElementById('myModalOne');
+var modalTwo = document.getElementById('myModalTwo');
+var modalThree = document.getElementById('myModalThree');
+
+//Create text variable and then get the ID that opens the modal.
+var heartIcon = document.getElementById("heart");
+var sfIcon= document.getElementById('sf');
+var fabricIcon = document.getElementById('fabric');
+
+// Get the specific <span> element that closes the modal / [] represents index in the array.
+var spanOne = document.getElementsByClassName("close")[0];
+var spanTwo = document.getElementsByClassName("close")[1];
+var spanThree = document.getElementsByClassName("close")[2];
+
+// When the user clicks on the button (text variable), then open the modal.
+//Must reference the earlier variable that identified the actual modal itself.
+heartIcon.onclick = function() {
+    modalOne.style.display = "block";
+}
+sfIcon.onclick = function(){
+	modalTwo.style.display = "block";
+}
+fabricIcon.onclick = function(){
+	modalThree.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal. Do not use
+//the SAME variables used to open the modal.
+spanOne.onclick = function() {
+    modalOne.style.display = "none";
+}
+spanTwo.onclick = function(){
+	modalTwo.style.display = "none";
+}
+spanThree.onclick = function(){
+	modalThree.style.display = "none";
+}
+
+// window.onclick = function(whatever){
+// 	if(whatever.target === modal){
+// 		modal.style.display = "none";
+// 	}
+// }
+
 
 
 
