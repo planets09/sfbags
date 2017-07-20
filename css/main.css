@@ -95,7 +95,7 @@ footer {
 .close {
     color: #aaa;
     float: right;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
 }
 
@@ -106,4 +106,7 @@ footer {
     cursor: pointer;
 }
 
+#heart, #sf, #fabric {
+	cursor: pointer;
+}
 
