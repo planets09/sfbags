@@ -28,7 +28,7 @@ var totePiggly = new toteBag("Hiddedly Piggledy", "cotton/poly blend", 40.00, " 
 
 
 //use .push method to push the objects into empty toteArray.
-toteArray.push(toteDoggie, toteGodzilla, toteHouse, toteGroovy, toteLove, toteRedBear, toteSkyline, toteSutro, totePiggly)
+toteArray.push(toteDoggie, toteGodzilla, toteHouse, toteGroovy, toteLove, toteRedBear, toteSkyline, toteSutro, totePiggly);
 
 for(i=0; i<toteArray.length; i++){
 	var newDiv = document.createElement('DIV');
@@ -46,7 +46,7 @@ for(i=0; i<toteArray.length; i++){
 	var tSize = document.createTextNode("Size: " + toteArray[i].size);
 	var tButton = document.createTextNode("ADD TO CART");
 
-	image.src = toteArray[i].image
+	image.src = toteArray[i].image;
 
 //Assign .className to elements; .className gets and sets
 // the value of the class attribute of the specified element.
@@ -83,9 +83,9 @@ for(i=0; i<toteArray.length; i++){
 // the actual ID was created/added thru function:
 
 function badgeImage(image, text, id){
-	this.image = image
-	this.text = text
-	this.id = id
+	this.image = image;
+	this.text = text;
+	this.id = id;
 }
 
 var badgeArray =[];
